@@ -12,3 +12,6 @@ Goal: To develop a ML model to predict stock performance for this business secto
 - Git repository
 - dedicated Slack channel
 
+## Data Sources
+Yahoo Finance Historical Data 
+- [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
