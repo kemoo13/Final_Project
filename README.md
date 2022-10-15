@@ -15,3 +15,22 @@ Goal: To develop a ML model to predict stock performance for this business secto
 ## Data Sources
 Yahoo Finance Historical Data 
 - [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
+
+## Database
+
+
+## Visualizations
+
+
+## Machine Learning
+
+Note: use the dates to divide the training and testing sets.  The training data should preceed the testing data.  Do this by using a conditional to define the test dataframe on dates.  
+
+Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequently applied for stock market prediction. Because it is able to store past information and prediction of future stock prices is dependent on previous prices, an LSTM model is useful because it can learn order dependence in sequence prediction problems.   
+
+## Summary
+
+
+
+## Future Improvement
+
