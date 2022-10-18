@@ -16,6 +16,8 @@ Goal: To develop a ML model to predict stock performance for this business secto
 Yahoo Finance Historical Data 
 - [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
 
+ASPCA - get general adoption data
+
 ## Database
 
 
@@ -33,4 +35,6 @@ Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequentl
 
 
 ## Future Improvement
+
+- limited data sources, improve analysis with more/better additional access to data
 
