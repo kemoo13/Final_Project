@@ -39,5 +39,4 @@ Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequentl
 
 ## Future Improvement
 
-- limited data sources, improve analysis with more/better additional access to data
-
+Since many of the pet stock sources were private, the data was limited to the ones that were available to the public through Yahoo! Finance. Due to this issue, some of the major pet companies such as PetCo and PetSmart were unable to be added to the analysis. These are multibillion-dollar companies that dominate the pet industry. If the stock information for these companies were added to the analysis, we would have a more accurate depiction of how well the pet industry did in the stock market in 2019. 
