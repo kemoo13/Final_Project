@@ -1,8 +1,8 @@
 # Final_Project
 
-## Topic
+## Topic Overview
 
-Overview: We are looking at stock closing price data for multiple pet companies across 2019-2020 to determine how Covid-19 impacted this industry.  Our hypothesis is that the changes associated with working from home and mandatory closures corresponded to an increase in pet ownership and this would be reflected in the stock data as an increase in stock pricing when compared to previous years.  We selected stocks to show various sectors of this industry including veterinary services, pet food and treats, pet care products, online pet medication and supplements and veterinary diagnostic services. 
+In 2019 the Covid-19 pandemic spread worldwide. In attempt to minimize the spread of the virus, the USA went in to lockdown in March of 2020. Many Americans adopted pets, largely cats and dogs, to cope with the stress of being hope for such a long period of time during lockdown. How has this affected the stock market for large pet companies? We are looking at stock closing price data for multiple pet companies across 2019-2020 to determine how Covid-19 impacted this industry.  Our hypothesis is that the changes associated with working from home and mandatory closures corresponded to an increase in pet ownership and this would be reflected in the stock data as an increase in stock pricing when compared to previous years.  We selected stocks to show various sectors of this industry including veterinary services, pet food and treats, pet care products, online pet medication and supplements and veterinary diagnostic services. 
 
 Goal: To develop a ML model to predict stock performance for this business sector and demonstrate how this industry thrived across this time period.  
 
@@ -19,7 +19,8 @@ Goal: To develop a ML model to predict stock performance for this business secto
 Yahoo Finance Historical Data 
 - [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
 
-ASPCA - get general adoption data
+ASPCA - https://www.aspca.org/about-us/press-releases/new-aspca-survey-shows-overwhelming-majority-dogs-and-cats-acquired-during
+Washington Post - https://www.washingtonpost.com/business/2022/01/07/covid-dogs-return-to-work/
 
 ## Database
 
