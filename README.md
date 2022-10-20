@@ -20,6 +20,7 @@ Yahoo Finance Historical Data
 - [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
 
 ASPCA - https://www.aspca.org/about-us/press-releases/new-aspca-survey-shows-overwhelming-majority-dogs-and-cats-acquired-during
+
 Washington Post - https://www.washingtonpost.com/business/2022/01/07/covid-dogs-return-to-work/
 
 ## Database
