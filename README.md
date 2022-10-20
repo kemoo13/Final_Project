@@ -6,6 +6,9 @@ In 2019 the Covid-19 pandemic spread worldwide. In attempt to minimize the sprea
 
 Goal: To develop a ML model to predict stock performance for this business sector and demonstrate how this industry thrived across this time period.  
 
+## Presentation Slides
+Here is a link to the draft presentation [slides](https://docs.google.com/presentation/d/1QxTAxMEOH4uQNyeQjTgOWfsjggnLrtuQdbM-eKRpzdk/).
+
 ## Communication Protocols
 - biweekly video calls 
 - google shared drive 
@@ -33,7 +36,8 @@ Pet data
 
 
 ## Visualizations
-
+Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
+![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
 ## Machine Learning
 
