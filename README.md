@@ -23,6 +23,12 @@ ASPCA - https://www.aspca.org/about-us/press-releases/new-aspca-survey-shows-ove
 
 Washington Post - https://www.washingtonpost.com/business/2022/01/07/covid-dogs-return-to-work/
 
+Pet data
+- Insurance Information Institute
+- American Pet Products Association
+- American Veterinary Meidcal Association
+- North American Pet Health Insurance Association
+
 ## Database
 
 
