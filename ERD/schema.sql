@@ -1,6 +1,7 @@
 Company_Info
 ----
-Stock_Ticker varchar pk
+Company_ID varchar pk
+Ticker varchar FK >- CHWY.Ticker
 Company varchar
 Date_IPO date
 Market_Capitalization varchar
@@ -9,8 +10,8 @@ Company_Size int
 
 CHWY
 ----
-Ticker varchar pk FK >- Company_Info.Stock_Ticker
-Date date FK >- ELAN.Date
+Ticker varchar pk
+Date date
 Open float
 High float
 Low float
@@ -20,8 +21,8 @@ Volume int
 
 ELAN
 ----
-Ticker varchar pk FK >- Company_Info.Stock_Ticker
-Date date FK >- FRPT.Date
+Ticker varchar pk FK >- Company_Info.Ticker
+Date date
 Open float
 High float
 Low float
@@ -32,7 +33,7 @@ Volume int
 
 FRPT
 ----
-Ticker varchar pk FK >- Company_Info.Stock_Ticker
+Ticker varchar pk FK >- Company_Info.Ticker
 Date date
 Open float
 High float
