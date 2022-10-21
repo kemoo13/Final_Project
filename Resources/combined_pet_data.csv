@@ -1,5 +1,6 @@
-year,total number of insured pets (USA),$ (BIL) US total pet expenditures,Number of Households with Dogs (MIL)
-2018,2156448,90.5,
-2019,2517122,97.1,63.4
-2020,3101956,103.6,
-2021,3979282,123.6,69
+Row Labels,Sum of total number of insured pets (USA) (MIL),Sum of $ (BIL) US total pet expenditures,Sum of Number of Households with Dogs (MIL)
+2018,2.156448,90.5,
+2019,2.517122,97.1,63.4
+2020,3.101956,103.6,
+2021,3.979282,123.6,69
+Grand Total,11.754808,414.8,132.4
