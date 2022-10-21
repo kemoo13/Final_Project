@@ -34,6 +34,8 @@ Pet data
 
 ## Database
 
+Entity Relationship Diagram (ERD)
+![Image](Images/D03.png)
 
 ## Visualizations
 Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
