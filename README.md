@@ -47,6 +47,8 @@ Note: use the dates to divide the training and testing sets.  The training data 
 
 Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequently applied for stock market prediction. Because it is able to store past information and prediction of future stock prices is dependent on previous prices, an LSTM model is useful because it can learn order dependence in sequence prediction problems.   
 
+The data is loaded into the DataFrame as a Comma Separated Value (.csv) file. The data was then checked to view the datatypes and reformat columns for later processing. The features and target were defined using “y” and “x” respectively. The data was split into test and training data using scikit random_state parameter. The data was then scaled using StandardScaler. A Keras Sequential Model is activated which is ideal for plain stacks of layers. We then added the input and output layers to the model, with the output model using a probability activation function. The model was then compiled and customized before fitting the model to the training data. The model was then evaluated for accuracy.
+
 ## Summary
 
 
