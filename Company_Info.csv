@@ -1,0 +1,7 @@
+Company_ID,Stock_Ticker,Company,Date_IPO,Market_Capitalization,Pet_Market_Segment,Company_Size 
+1,CHWY,"Chewy, Inc,",6/14/2019,13.95B,"Pet Supplies, E-commerce",21300
+2,ELAN,Elanco Animal Health Incorporated,9/20/2018,5.651B,Pharmaceutical (animal),10200
+3,PETQ,"PetIQ, Inc.",7/20/2017,222.031M,Pharmaceutical (animal),849
+4,IDXX,"IDEXX Laboratories, Inc.",6/21/1991,27.574B,Healthcare,10000
+5,PETS,"PetMed Express, Inc.",2/1/2020,438.348M,Pharmaceutical (animal),212
+6,FRPT,"Freshpet, Inc.",11/1/2014,2.582B,Pet Food,789
