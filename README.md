@@ -1,10 +1,16 @@
 # Final_Project
 
-## Topic Overview
+## Overview
 
 In 2019 the Covid-19 pandemic spread worldwide. In attempt to minimize the spread of the virus, the USA went in to lockdown in March of 2020. Many Americans adopted pets, largely cats and dogs, to cope with the stress of being hope for such a long period of time during lockdown. How has this affected the stock market for large pet companies? We are looking at stock closing price data for multiple pet companies across 2019-2020 to determine how Covid-19 impacted this industry.  Our hypothesis is that the changes associated with working from home and mandatory closures corresponded to an increase in pet ownership and this would be reflected in the stock data as an increase in stock pricing when compared to previous years.  We selected stocks to show various sectors of this industry including veterinary services, pet food and treats, pet care products, online pet medication and supplements and veterinary diagnostic services. 
 
-Goal: To develop a ML model to predict stock performance for this business sector and demonstrate how this industry thrived across this time period.  
+Goal: To develop a ML model to predict stock performance for this business sector and demonstrate how this industry thrived across this time period.
+
+### Selected Stocks
+- Chewy (CHWY) - an independent subsidiary of PetSmart, Chewy.com is an online retailer offering food, supplements, prescriptions and supplies
+- Elanco Animal Health Inc (ELAN) - the second largest animal health company in the world, produces veterinary pharmaceuticals for both companion animals and livestock
+- Freshpet Inc (FRPT) - a pet food manufacturer, specializes in refrigerated meals and treats for dogs and cats which are distributed by local retailers and specialty pet stores
+- PetQ (PETQ) -
 
 ## Presentation Slides
 Here is a link to the draft presentation [slides](https://docs.google.com/presentation/d/1QxTAxMEOH4uQNyeQjTgOWfsjggnLrtuQdbM-eKRpzdk/).
@@ -56,3 +62,7 @@ The data is loaded into the DataFrame as a Comma Separated Value (.csv) file. Th
 ## Future Improvement
 
 Since many of the pet stock sources were private, the data was limited to the ones that were available to the public through Yahoo! Finance. Due to this issue, some of the major pet companies such as PetCo and PetSmart were unable to be added to the analysis. These are multibillion-dollar companies that dominate the pet industry. If the stock information for these companies were added to the analysis, we would have a more accurate depiction of how well the pet industry did in the stock market in 2019. 
+
+## References
+
+
