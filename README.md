@@ -10,7 +10,7 @@ Goal: To develop a ML model to predict stock performance for this business secto
 - Chewy (CHWY) - an independent subsidiary of PetSmart, Chewy.com is an online retailer offering food, supplements, prescriptions and supplies
 - Elanco Animal Health Inc (ELAN) - the second largest animal health company in the world, produces veterinary pharmaceuticals for both companion animals and livestock
 - Freshpet Inc (FRPT) - a pet food manufacturer, specializes in refrigerated meals and treats for dogs and cats which are distributed by local retailers and specialty pet stores
-- PetQ (PETQ) -
+- PetIQ Inc (PETQ) - operates a products segment (manufacture and distribution of health and wellness products) and services segment (veterinary health clincs and wellness centers) 
 
 ## Presentation Slides
 Here is a link to the draft presentation [slides](https://docs.google.com/presentation/d/1QxTAxMEOH4uQNyeQjTgOWfsjggnLrtuQdbM-eKRpzdk/).
@@ -25,18 +25,16 @@ Here is a link to the draft presentation [slides](https://docs.google.com/presen
 ![Flow_Diagram](/Images/Pet_Stock_Workflow.png)
 
 ## Data Sources
-Yahoo Finance Historical Data 
-- [CHWY](https://finance.yahoo.com/quote/CHWY/history?p=CHWY)
-
-ASPCA - https://www.aspca.org/about-us/press-releases/new-aspca-survey-shows-overwhelming-majority-dogs-and-cats-acquired-during
-
-Washington Post - https://www.washingtonpost.com/business/2022/01/07/covid-dogs-return-to-work/
+Yahoo Finance Historical Data : CHWY, ELAN, FRPT, PETQ, ^SPX
 
 Pet data
 - Insurance Information Institute
 - American Pet Products Association
 - American Veterinary Meidcal Association
 - North American Pet Health Insurance Association
+
+Historical data for each stock and the S&P 500 Index was downloaded as individual `.csv` files from Yahoo Finance.  Each file was read into a pandas dataframe and checked for datatype and null values.  The date was converted to datetime and a column was added to each dataframe to identify the stock's ticker, which would become the primary key for the database. The cleaned dataframe was exported as a .csv file for the repository and also loaded to Postgres using SQLALchemy.
+
 
 ## Database
 
@@ -64,5 +62,13 @@ The data is loaded into the DataFrame as a Comma Separated Value (.csv) file. Th
 Since many of the pet stock sources were private, the data was limited to the ones that were available to the public through Yahoo! Finance. Due to this issue, some of the major pet companies such as PetCo and PetSmart were unable to be added to the analysis. These are multibillion-dollar companies that dominate the pet industry. If the stock information for these companies were added to the analysis, we would have a more accurate depiction of how well the pet industry did in the stock market in 2019. 
 
 ## References
+
+ASPCA - https://www.aspca.org/about-us/press-releases/new-aspca-survey-shows-overwhelming-majority-dogs-and-cats-acquired-during
+
+Washington Post - https://www.washingtonpost.com/business/2022/01/07/covid-dogs-return-to-work/
+
+US News - https://money.usnews.com/investing/stock-market-news/slideshows/pet-stocks-to-buy-amid-the-boom-in-ownership?slide=2
+
+Yahoo Finance - https://finance.yahoo.com/news/9-best-purebred-pet-stocks-210145250.html
 
 
