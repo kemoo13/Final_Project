@@ -27,19 +27,22 @@ Here is a link to the draft presentation [slides](https://docs.google.com/presen
 ## Data Sources
 Yahoo Finance Historical Data : CHWY, ELAN, FRPT, PETQ, ^SPX
 
-Pet data
+Historical data for each stock and the S&P 500 Index was downloaded as individual `.csv` files from Yahoo Finance.  Each file was read into a pandas dataframe and checked for datatype and null values.  The date was converted to datetime and a column was added to each dataframe to identify the stock's ticker, which would become the primary key for the database. Each cleaned dataframe was exported as a .csv file for the repository and also loaded to a Postgres Table `all_stocks` using SQLALchemy.  
+
+![cleaning notebook](Images/to_sql_all_stocks.png)
+
+Pet Ownership and Industry data
 - Insurance Information Institute
 - American Pet Products Association
 - American Veterinary Meidcal Association
 - North American Pet Health Insurance Association
 
-Historical data for each stock and the S&P 500 Index was downloaded as individual `.csv` files from Yahoo Finance.  Each file was read into a pandas dataframe and checked for datatype and null values.  The date was converted to datetime and a column was added to each dataframe to identify the stock's ticker, which would become the primary key for the database. The cleaned dataframe was exported as a .csv file for the repository and also loaded to Postgres using SQLALchemy.
-
-
 ## Database
 
 Entity Relationship Diagram (ERD)
 ![Image](Images/D03.png)
+
+Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
 ## Visualizations
 Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
