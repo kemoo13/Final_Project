@@ -50,6 +50,10 @@ Below is a draft of what may be included in our final dashboard presentation. Th
 
 ## Machine Learning
 
+Our first Machine Learning Model was built using a basic Neural Network.  We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame.  We then generated our DataFrame  
+
+
+
 Note: use the dates to divide the training and testing sets.  The training data should preceed the testing data.  Do this by using a conditional to define the test dataframe on dates.  
 
 Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequently applied for stock market prediction. Because it is able to store past information and prediction of future stock prices is dependent on previous prices, an LSTM model is useful because it can learn order dependence in sequence prediction problems.   
