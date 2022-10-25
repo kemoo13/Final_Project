@@ -102,6 +102,10 @@ RETURNING *;
 
 --DROP TABLE stocks_joined;
 
+--> export .csv to tmp folder
+
+COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
+
 
 
 
