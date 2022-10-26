@@ -97,7 +97,7 @@ SELECT * FROM stocks_joined;
 -- remove data outside the timeframe of interest --
 
 DELETE FROM stocks_joined
-WHERE "Date" < '2019-06-17'
+WHERE "Date" < '2019-10-16' or 'Date' > '2021-10-17'
 RETURNING *;
 
 --DROP TABLE stocks_joined;
