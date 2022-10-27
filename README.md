@@ -48,6 +48,8 @@ Using PGadmin, the `all_stocks` table was joined with the `company_info` table a
 Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
+[Tableau Dashboard Draft](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD02)
+
 ## Machine Learning
 
 Our first Machine Learning Model was built using a basic Neural Network.  We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame.  We then generated our DataFrame  
