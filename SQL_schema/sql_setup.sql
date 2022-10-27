@@ -15,21 +15,6 @@ CREATE TABLE chwy(
 
 SELECT * FROM chwy;
 
--- elanco table  ---
-
-CREATE TABLE elan(
-    Date date not null,
-    Open int not null,    
-    High int not null,
-    Low int not null,
-    Close int not null,
-    Adj_Close int not null,
-    Volume int not null,
-    Ticker varchar not null
-);
-
-SELECT * FROM elan;
-
 -- freshpet table  ---
 
 CREATE TABLE frpt(
