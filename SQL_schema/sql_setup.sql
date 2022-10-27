@@ -87,11 +87,19 @@ RETURNING *;
 
 --DROP TABLE stocks_joined;
 
---> export .csv to tmp folder
+--> export .csv to tmp folder for machine learning model
 
 COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
 
+--> run ML model notebook
 
+SELECT * FROM model_predictions;
+
+DROP TABLE model_predictions;
+
+SELECT * FROM model_scores;
+
+DROP TABLE model_scores;
 
 
 
