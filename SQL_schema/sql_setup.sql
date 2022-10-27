@@ -97,14 +97,26 @@ SELECT * FROM stocks_joined;
 -- remove data outside the timeframe of interest --
 
 DELETE FROM stocks_joined
-WHERE "Date" < '2019-10-16' or 'Date' > '2021-10-17'
+WHERE "Date" < '2019-10-16' or "Date" > '2021-10-17'
 RETURNING *;
 
---DROP TABLE stocks_joined;
+-- DROP TABLE stocks_joined;
 
 --> export .csv to tmp folder
 
 COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
+
+-- DROP TABLE chwy;
+
+-- DROP TABLE chwy_join;
+
+-- DROP TABLE company_info;
+
+-- DROP TABLE elan;
+
+-- DROP TABLE frpt;
+
+-- DROP TABLE petq	
 
 
 
