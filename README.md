@@ -40,7 +40,7 @@ Pet Ownership and Industry data
 ## Database
 
 Entity Relationship Diagram (ERD)
-![Image](Images/D03.png)
+![Image](Images/D04.png)
 
 Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
