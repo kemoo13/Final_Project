@@ -55,11 +55,9 @@ Below is a draft of what may be included in our final dashboard presentation. Th
 Our first Machine Learning Model was built using a basic Neural Network. 
 We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame as shown in the image below.
 
-![chewy_df.head.png](images/chewy_df.head.png!)
+![chewy_df.head.png](https://github.com/kemoo13/Final_Project/blob/main/Images/chewy_df.head.png)
 
-We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns
-so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X
-and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
+We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns, so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
 
 We then imported sklearn.model_selection and train_test_split to set up our data for splitting.  
 
