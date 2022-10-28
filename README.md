@@ -77,6 +77,7 @@ The original model choice was a normal RNN until we realized we were working wit
 #### Model training:
 The model was trained by fitting it to the previously separated testing set data. To do this, an optimizer and loss function was applied.
 * Insert picture HERE *
+
 For this project, the “adam” optimizer for its fast results and works well with large datasets. The model was then fit to training sets using a batch_size of 1 and run for 5 epochs.
 
 
