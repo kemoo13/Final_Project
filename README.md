@@ -52,7 +52,20 @@ Below is a draft of what may be included in our final dashboard presentation. Th
 
 ## Machine Learning
 
-Our first Machine Learning Model was built using a basic Neural Network. We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame. We then generated our DataFrame
+Our first Machine Learning Model was built using a basic Neural Network. 
+We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame as shown in the image below.
+
+![chewy_df.head.png](images/chewy_df.head.png)
+
+We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns
+so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X
+and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
+
+We then imported sklearn.model_selection and train_test_split to set up our data for splitting.  
+
+Our next step was to then scale the data to set it up for the keras sequential model.  After setting up the keras sequential model, we added our first 
+dense layer and output layer.  We then compiled the data and fit the model to the training data.  The end result provided us with a model that was not very
+accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
 
 #### Data preprocessing:
 To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
