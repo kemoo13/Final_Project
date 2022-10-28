@@ -15,21 +15,6 @@ CREATE TABLE chwy(
 
 SELECT * FROM chwy;
 
--- elanco table  ---
-
-CREATE TABLE elan(
-    Date date not null,
-    Open int not null,    
-    High int not null,
-    Low int not null,
-    Close int not null,
-    Adj_Close int not null,
-    Volume int not null,
-    Ticker varchar not null
-);
-
-SELECT * FROM elan;
-
 -- freshpet table  ---
 
 CREATE TABLE frpt(
@@ -102,10 +87,11 @@ RETURNING *;
 
 -- DROP TABLE stocks_joined;
 
---> export .csv to tmp folder
+--> export .csv to tmp folder for machine learning model
 
 COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
 
+<<<<<<< HEAD
 -- DROP TABLE chwy;
 
 -- DROP TABLE chwy_join;
@@ -119,6 +105,17 @@ COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
 -- DROP TABLE petq	
 
 
+=======
+--> run ML model notebook
+
+SELECT * FROM model_predictions;
+
+DROP TABLE model_predictions;
+
+SELECT * FROM model_scores;
+
+DROP TABLE model_scores;
+>>>>>>> 9c9bf78eddee3e844066482cbc0e99eb7d9ede57
 
 
 

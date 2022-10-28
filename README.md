@@ -8,7 +8,7 @@ Goal: To develop a ML model to predict stock performance for this business secto
 
 ### Selected Stocks
 - Chewy (CHWY) - an independent subsidiary of PetSmart, Chewy.com is an online retailer offering food, supplements, prescriptions and supplies
-- Elanco Animal Health Inc (ELAN) - the second largest animal health company in the world, produces veterinary pharmaceuticals for both companion animals and livestock
+- Trupanion Inc (TRUP) - a medical insurance provider for dogs and cats
 - Freshpet Inc (FRPT) - a pet food manufacturer, specializes in refrigerated meals and treats for dogs and cats which are distributed by local retailers and specialty pet stores
 - PetIQ Inc (PETQ) - operates a products segment (manufacture and distribution of health and wellness products) and services segment (veterinary health clincs and wellness centers) 
 
@@ -40,7 +40,7 @@ Pet Ownership and Industry data
 ## Database
 
 Entity Relationship Diagram (ERD)
-![Image](Images/D03.png)
+![Image](Images/D04.png)
 
 Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
@@ -48,17 +48,45 @@ Using PGadmin, the `all_stocks` table was joined with the `company_info` table a
 Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
+[Tableau Dashboard Draft](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD02)
+
 ## Machine Learning
 
-Our first Machine Learning Model was built using a basic Neural Network.  We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame.  We then generated our DataFrame  
+Our first Machine Learning Model was built using a basic Neural Network. We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame. We then generated our DataFrame
+
+#### Data preprocessing:
+To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
+
+#### Feature selection and engineering:
+Date and Adjusted Close price (Adj_Close) were chosen as the features for this model to best portray the predictions for each stock. The adjusted close price was chosen over the close price because the adjusted close is a more accurate representation of the stock’s value. The close price only reflects the cost of the shares at the end of the day. Adjusted close accounts for other things such as dividends, stock splits, and new stock offerings.  scaled the data to normalize the data in a 0 to 1 range. Then converted the data into a Numpy array before reshaping the data to fit the 3D model.
 
 
+#### Training and testing sets:
+The adjusted closing price was extracted into a new dataframe, then converted into a time series. 80% of the data was then split into the training set and the remaining 20% into the testing set.  Data was group by 60-day segments to train the model. The data was then converted in to a Numpy array which is the format accepted by Tensorflow for training, then reshaped into a three-dimensional array to work with the LSTM model. The remaining 20% of normalized data was processed for the testing sets in a similar fashion as the training sets
+*Insert the picture of the training portion here*
 
-Note: use the dates to divide the training and testing sets.  The training data should preceed the testing data.  Do this by using a conditional to define the test dataframe on dates.  
+#### Why LSTM; Benefits and Limitations:
+For this project, an LSTM model was necessary to perform this analysis. It is difficult to train RNNS to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
+Instead, a Long Short-Term Memory (LSTM) was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
+There are a few potential draw backs of using the LSTM model. The main drawbacks for this model are;
+*The training process is longer
+*They require more memory to train (cannot be done in cloud due to scaling)
+*Prone to overfitting
 
-Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequently applied for stock market prediction. Because it is able to store past information and prediction of future stock prices is dependent on previous prices, an LSTM model is useful because it can learn order dependence in sequence prediction problems.   
+#### Model Choice:
+The original model choice was a normal RNN until we realized we were working with Timeseries data and that a standard RNN would be unable to retain enough information to properly train the model. We then chose an LSTM instead as this is the most common practice for stock prediction. The stock history data for all four stockers were concatenated into one database. Tickers were implements to allowed for filter based on that ticker - CHWY, ELAN, FRPT, PETQ.
 
-The data is loaded into the DataFrame as a Comma Separated Value (.csv) file. The data was then checked to view the datatypes and reformat columns for later processing. The features and target were defined using “y” and “x” respectively. The data was split into test and training data using scikit random_state parameter. The data was then scaled using StandardScaler. A Keras Sequential Model is activated which is ideal for plain stacks of layers. We then added the input and output layers to the model, with the output model using a probability activation function. The model was then compiled and customized before fitting the model to the training data. The model was then evaluated for accuracy.
+#### Model training:
+The model was trained by fitting it to the previously separated testing set data. To do this, an optimizer and loss function was applied.
+* Insert picture HERE *
+
+For this project, the “adam” optimizer for its fast results and works well with large datasets. The model was then fit to training sets using a batch_size of 1 and run for 5 epochs.
+
+
+#### Description of current accuracy score:
+
+The LSTM model uses a root mean square error (RMSE) metric to determine the accuracy and performance of the model. The close to 0 that the RMSE score is, the more accurate the model is performing. When running the RMSE for this model, our team ended with a score of 1.0159546093459928, which indicated that the model is performing well. 
+
 
 ## Summary
 
