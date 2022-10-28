@@ -52,6 +52,8 @@ Below is a draft of what may be included in our final dashboard presentation. Th
 
 ## Machine Learning
 
+Our first Machine Learning Model was built using a basic Neural Network. We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame. We then generated our DataFrame
+
 #### Data preprocessing:
 To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
 
