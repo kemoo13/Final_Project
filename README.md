@@ -55,7 +55,7 @@ Below is a draft of what may be included in our final dashboard presentation. Th
 Our first Machine Learning Model was built using a basic Neural Network. 
 We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame as shown in the image below.
 
-![chewy_df.head.png](images/chewy_df.head.png)
+![chewy_df.head.png](images/chewy_df.head.png!)
 
 We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns
 so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X
