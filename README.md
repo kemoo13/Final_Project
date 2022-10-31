@@ -45,10 +45,19 @@ Entity Relationship Diagram (ERD)
 Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
 ## Visualizations
-Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
+The final project dashboard was built in Tableau and hosted on Tablea Public. [Link to Tableau Dashboard](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD03)
+
+The dashboard has three sections:
+- Header with project background and image
+- Company Info / Filters
+- Machine Learning Predictions and RMSE scores
+
+The user can view all company data or filter down to a specific stock and date range.
+
+Diagramming the mockup in Figma before creation helped us identify what data points to show and what elements we wanted to be interactive. Below is the  draft mockup of our final dashboard presentation. The interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
-[Tableau Dashboard Draft](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD02)
+
 
 ## Machine Learning
 
