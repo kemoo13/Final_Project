@@ -86,12 +86,12 @@ The adjusted closing price was extracted into a new dataframe, then converted in
 *Insert the picture of the training portion here*
 
 #### Why LSTM; Benefits and Limitations:
-For this project, an LSTM model was necessary to perform this analysis. It is difficult to train RNNS to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
-Instead, a Long Short-Term Memory (LSTM) was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
+For this project, a Long Short-Term Memory (LSTM) model was necessary to perform this analysis. It is difficult to train regular Recurrent Neural Networks (RNNs) to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
+Instead, an LSTM was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
 There are a few potential draw backs of using the LSTM model. The main drawbacks for this model are;
-*The training process is longer
-*They require more memory to train (cannot be done in cloud due to scaling)
-*Prone to overfitting
+- The training process is longer
+- They require more memory to train (cannot be done in cloud due to scaling)
+- Prone to overfitting
 
 #### Model Choice:
 The original model choice was a normal RNN until we realized we were working with Timeseries data and that a standard RNN would be unable to retain enough information to properly train the model. We then chose an LSTM instead as this is the most common practice for stock prediction. The stock history data for all four stockers were concatenated into one database. Tickers were implements to allowed for filter based on that ticker - CHWY, ELAN, FRPT, PETQ.
