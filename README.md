@@ -40,27 +40,92 @@ Pet Ownership and Industry data
 ## Database
 
 Entity Relationship Diagram (ERD)
+
 ![Image](Images/D04.png)
 
 Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
 ## Visualizations
-Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
+The final project dashboard was built in Tableau and hosted on Tablea Public. [Link to Tableau Dashboard](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD03)
+
+The dashboard has three sections:
+- Header with project background and image
+- Company Info / Filters
+- Machine Learning Predictions and RMSE scores
+
+The user can view all company data or filter down to a specific stock and date range.
+
+Diagramming the mockup in Figma before creation helped us identify what data points to show and what elements we wanted to be interactive. Below is the  draft mockup of our final dashboard presentation. The interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
-[Tableau Dashboard Draft](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD02)
+
 
 ## Machine Learning
 
-Our first Machine Learning Model was built using a basic Neural Network.  We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame.  We then generated our DataFrame  
+Our first Machine Learning Model was built using a basic Neural Network. 
+We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame as shown in the image below.
 
-Long Short-Term Memory (LSTM) is a type of recurrent neural network is frequently applied for stock market prediction. Because it is able to store past information and prediction of future stock prices is dependent on previous prices, an LSTM model is useful because it can learn order dependence in sequence prediction problems.   
-Note: use the dates to divide the training and testing sets.  The training data should preceed the testing data.  Do this by using a conditional to define the test dataframe on dates.  
+![chewy_df.head.png](https://github.com/kemoo13/Final_Project/blob/main/Images/chewy_df.head.png)
 
-Data Preprocessing and Modeling:
-The data is loaded into the DataFrame as a Comma Separated Value (.csv) file. The data was then checked to view the datatypes and reformat columns for later processing. The features and target were defined using “y” and “x” respectively. The data was split into test and training data using scikit random_state parameter. The data was then scaled using StandardScaler. A Keras Sequential Model is activated which is ideal for plain stacks of layers. We then added the input and output layers to the model, with the output model using a probability activation function. The model was then compiled and customized before fitting the model to the training data. The model was then evaluated for accuracy.
+We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns, so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
+
+![Generating_Chewy_Data](https://github.com/kemoo13/Final_Project/blob/main/Images/Generating_Chewy_Data.png)
+
+We then imported sklearn.model_selection and train_test_split to set up our data for splitting.  
+
+![sk_learn_train_test_split.png](https://github.com/kemoo13/Final_Project/blob/main/Images/sk_learn_train_test_split.png)
+
+Our next step was to then scale the data to set it up for the keras sequential model.  After setting up the keras sequential model, we added our first 
+dense layer and output layer as shown in the images below.
+
+![Keras_Model.png](https://github.com/kemoo13/Final_Project/blob/main/Images/Keras_Model.png)
+
+![first_dense_layer_and_output.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_dense_layer_and_output.png)
+
+We then compiled the data and fit the model to the training data.  
+
+The end result provided us with a model that was not very accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
+
+![first_ML_accuracy.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_ML_accuracy.png)
+
+#### Data preprocessing:
+To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
+
+#### Feature selection and engineering:
+Date and Adjusted Close price (Adj_Close) were chosen as the features for this model to best portray the predictions for each stock. The adjusted close price was chosen over the close price because the adjusted close is a more accurate representation of the stock’s value. The close price only reflects the cost of the shares at the end of the day. Adjusted close accounts for other things such as dividends, stock splits, and new stock offerings.  scaled the data to normalize the data in a 0 to 1 range. Then converted the data into a Numpy array before reshaping the data to fit the 3D model.
+
+
+#### Training and testing sets:
+The adjusted closing price was extracted into a new dataframe, then converted into a time series. 80% of the data was then split into the training set and the remaining 20% into the testing set.  Data was group by 60-day segments to train the model. The data was then converted in to a Numpy array which is the format accepted by Tensorflow for training, then reshaped into a three-dimensional array to work with the LSTM model. The remaining 20% of normalized data was processed for the testing sets in a similar fashion as the training sets
+<img src="Images/training_and_testing_sets.jpg" width="700">
+
+#### Why LSTM; Benefits and Limitations:
+For this project, a Long Short-Term Memory (LSTM) model was necessary to perform this analysis. It is difficult to train regular Recurrent Neural Networks (RNNs) to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
+Instead, an LSTM was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
+There are a few potential draw backs of using the LSTM model. The main drawbacks for this model are;
+- The training process is longer
+- They require more memory to train (cannot be done in cloud due to scaling)
+- Prone to overfitting
+
+#### Model Choice:
+The original model choice was a normal RNN until we realized we were working with Timeseries data and that a standard RNN would be unable to retain enough information to properly train the model. We then chose an LSTM instead as this is the most common practice for stock prediction. The stock history data for all four stockers were concatenated into one database. Tickers were implements to allowed for filter based on that ticker - CHWY, ELAN, FRPT, PETQ.
+
+#### Model training:
+The model was trained by fitting it to the previously separated testing set data. To do this, an optimizer and loss function was applied.
+
+<img src="Images/model_training.jpg" width="800">
+
+For this project, the “adam” optimizer for its fast results and works well with large datasets. The model was then fit to training sets using a batch_size of 1 and run for 5 epochs.
+
+
+#### Description of current accuracy score:
+
+The LSTM model uses a root mean square error (RMSE) metric to determine the accuracy and performance of the model. The close to 0 that the RMSE score is, the more accurate the model is performing. When running the RMSE for this model, our team ended with a score of 1.0159546093459928, which indicated that the model is performing well. 
+
 
 ## Summary
+
+In conclusion, our use of trial and error though Machine Learning produced a model that was able to accurately predict stock prices based on certain criteria. 
 
 
 
