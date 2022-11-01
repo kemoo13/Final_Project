@@ -1,49 +1,4 @@
---> setup Final_Project DB with stock tables
-
--- chwy table --
-
-CREATE TABLE chwy(
-    Date date not null,
-    Open int not null,    
-    High int not null,
-    Low int not null,
-    Close int not null,
-    Adj_Close int not null,
-    Volume int not null,
-    Ticker varchar not null
-);
-
-SELECT * FROM chwy;
-
--- freshpet table  ---
-
-CREATE TABLE frpt(
-    Date date not null,
-    Open int not null,    
-    High int not null,
-    Low int not null,
-    Close int not null,
-    Adj_Close int not null,
-    Volume int not null,
-    Ticker varchar not null
-);
-
-SELECT * FROM frpt;
-
--- petiq table  ---
-
-CREATE TABLE petq(
-    Date date not null,
-    Open int not null,    
-    High int not null,
-    Low int not null,
-    Close int not null,
-    Adj_Close int not null,
-    Volume int not null,
-    Ticker varchar not null
-);
-
-SELECT * FROM petq;
+--> Final_Project DB Setup <--
 
 --> run all ETL jupyter notebooks from Final_Project repo
 
@@ -51,7 +6,7 @@ SELECT * FROM petq;
 
 SELECT * FROM all_stocks;
 
---> build info table and import data from Final_Project repo
+--> build info table and import company_info.csv data from Final_Project repo
 
 -- company info table --
     
@@ -69,11 +24,12 @@ SELECT * FROM company_info;
 
 -- join stock and company_info tables
 
-SELECT C.Company_ID, C.Company, C.Date_IPO, C.Market_Capitalization, 
-    C.Pet_Market_Segment, C.company_size, all_stocks."Date", all_stocks."Adj_Close", all_stocks."Volume", all_stocks."Ticker"
+SELECT C.Company_ID, all_stocks."Ticker", C.Company, all_stocks."Date", 
+    all_stocks."Adj_Close", all_stocks."Volume", C.Date_IPO, 
+    C.Market_Capitalization, C.Pet_Market_Segment, C.company_size
 INTO stocks_joined
-FROM Company_Info as c
-INNER JOIN all_stocks
+FROM all_stocks 
+INNER JOIN Company_Info as c
 ON all_stocks."Ticker" = C.stock_ticker
 ;
 
@@ -85,21 +41,21 @@ DELETE FROM stocks_joined
 WHERE "Date" < '2019-10-16' or 'Date' > '2021-10-17'
 RETURNING *;
 
---DROP TABLE stocks_joined;
+DROP TABLE stocks_joined;
 
 --> export .csv to tmp folder for machine learning model
 
 COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
 
---> run ML model notebook
+--> run all ML model notebooks
 
 SELECT * FROM model_predictions;
 
-DROP TABLE model_predictions;
+--DROP TABLE model_predictions;
 
 SELECT * FROM model_scores;
 
-DROP TABLE model_scores;
+--DROP TABLE model_scores;
 
 
 
