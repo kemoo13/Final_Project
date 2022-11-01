@@ -76,8 +76,17 @@ We then imported sklearn.model_selection and train_test_split to set up our data
 ![sk_learn_train_test_split.png](https://github.com/kemoo13/Final_Project/blob/main/Images/sk_learn_train_test_split.png)
 
 Our next step was to then scale the data to set it up for the keras sequential model.  After setting up the keras sequential model, we added our first 
-dense layer and output layer.  We then compiled the data and fit the model to the training data.  The end result provided us with a model that was not very
-accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
+dense layer and output layer as shown in the images below.
+
+![Keras_Model.png](https://github.com/kemoo13/Final_Project/blob/main/Images/Keras_Model.png)
+
+![first_dense_layer_and_output.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_dense_layer_and_output.png)
+
+We then compiled the data and fit the model to the training data.  
+
+The end result provided us with a model that was not very accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
+
+[first_ML_accuracy.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_ML_accuracy.png)
 
 #### Data preprocessing:
 To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
@@ -115,6 +124,8 @@ The LSTM model uses a root mean square error (RMSE) metric to determine the accu
 
 
 ## Summary
+
+In conclusion, our use of trial and error though Machine Learning produced a model that was able to accurately predict stock prices based on certain criteria. 
 
 
 
