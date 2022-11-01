@@ -41,36 +41,13 @@ DELETE FROM stocks_joined
 WHERE "Date" < '2019-10-16' or "Date" > '2021-10-17'
 RETURNING *;
 
-<<<<<<< HEAD
-DROP TABLE stocks_joined;
-=======
--- DROP TABLE stocks_joined;
->>>>>>> e954c64cffb504b4679f1b0250cdedd4cd4cca28
+--DROP TABLE stocks_joined;
 
 --> export .csv to tmp folder for machine learning model
 
 COPY stocks_joined TO 'C:\tmp\stocks_joined.csv' DELIMITER ',' CSV HEADER;
 
-<<<<<<< HEAD
 --> run all ML model notebooks
-=======
-<<<<<<< HEAD
--- DROP TABLE chwy;
-
--- DROP TABLE chwy_join;
-
--- DROP TABLE company_info;
-
--- DROP TABLE elan;
-
--- DROP TABLE frpt;
-
--- DROP TABLE petq	
-
-
-=======
---> run ML model notebook
->>>>>>> e954c64cffb504b4679f1b0250cdedd4cd4cca28
 
 SELECT * FROM model_predictions;
 
@@ -78,15 +55,4 @@ SELECT * FROM model_predictions;
 
 SELECT * FROM model_scores;
 
-<<<<<<< HEAD
 --DROP TABLE model_scores;
-=======
-DROP TABLE model_scores;
->>>>>>> 9c9bf78eddee3e844066482cbc0e99eb7d9ede57
->>>>>>> e954c64cffb504b4679f1b0250cdedd4cd4cca28
-
-
-
-
-
-
