@@ -84,7 +84,7 @@ Date and Adjusted Close price (Adj_Close) were chosen as the features for this m
 
 #### Training and testing sets:
 The adjusted closing price was extracted into a new dataframe, then converted into a time series. 80% of the data was then split into the training set and the remaining 20% into the testing set.  Data was group by 60-day segments to train the model. The data was then converted in to a Numpy array which is the format accepted by Tensorflow for training, then reshaped into a three-dimensional array to work with the LSTM model. The remaining 20% of normalized data was processed for the testing sets in a similar fashion as the training sets
-<img src="Images/training_and_testing_sets.jpg" width="500">
+<img src="Images/training_and_testing_sets.jpg" width="700">
 
 #### Why LSTM; Benefits and Limitations:
 For this project, a Long Short-Term Memory (LSTM) model was necessary to perform this analysis. It is difficult to train regular Recurrent Neural Networks (RNNs) to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
@@ -100,7 +100,7 @@ The original model choice was a normal RNN until we realized we were working wit
 #### Model training:
 The model was trained by fitting it to the previously separated testing set data. To do this, an optimizer and loss function was applied.
 
-<img src="Images/model_training.jpg" width="500">
+<img src="Images/model_training.jpg" width="800">
 
 For this project, the “adam” optimizer for its fast results and works well with large datasets. The model was then fit to training sets using a batch_size of 1 and run for 5 epochs.
 
