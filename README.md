@@ -86,7 +86,7 @@ We then compiled the data and fit the model to the training data.
 
 The end result provided us with a model that was not very accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
 
-[first_ML_accuracy.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_ML_accuracy.png)
+![first_ML_accuracy.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_ML_accuracy.png)
 
 #### Data preprocessing:
 To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
