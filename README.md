@@ -40,26 +40,34 @@ Pet Ownership and Industry data
 ## Database
 
 Entity Relationship Diagram (ERD)
+
 ![Image](Images/D04.png)
 
 Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
 
 ## Visualizations
-Below is a draft of what may be included in our final dashboard presentation. The plan is to utilize graphs from plotly and Seaborn for visuals, and create an interactive dashboard in a Tableau story or dashboard. There will be interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
+The final project dashboard was built in Tableau and hosted on Tablea Public. [Link to Tableau Dashboard](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD03)
+
+The dashboard has three sections:
+- Header with project background and image
+- Company Info / Filters
+- Machine Learning Predictions and RMSE scores
+
+The user can view all company data or filter down to a specific stock and date range.
+
+Diagramming the mockup in Figma before creation helped us identify what data points to show and what elements we wanted to be interactive. Below is the  draft mockup of our final dashboard presentation. The interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
 
-[Tableau Dashboard Draft](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD02)
+
 
 ## Machine Learning
 
 Our first Machine Learning Model was built using a basic Neural Network. 
 We started off by importing our dependencies and reading in our cleaned Chewy data to produce a Chewy DataFrame as shown in the image below.
 
-![chewy_df.head.png](images/chewy_df.head.png)
+![chewy_df.head.png](https://github.com/kemoo13/Final_Project/blob/main/Images/chewy_df.head.png)
 
-We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns
-so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X
-and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
+We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns, so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
 
 We then imported sklearn.model_selection and train_test_split to set up our data for splitting.  
 
@@ -76,22 +84,23 @@ Date and Adjusted Close price (Adj_Close) were chosen as the features for this m
 
 #### Training and testing sets:
 The adjusted closing price was extracted into a new dataframe, then converted into a time series. 80% of the data was then split into the training set and the remaining 20% into the testing set.  Data was group by 60-day segments to train the model. The data was then converted in to a Numpy array which is the format accepted by Tensorflow for training, then reshaped into a three-dimensional array to work with the LSTM model. The remaining 20% of normalized data was processed for the testing sets in a similar fashion as the training sets
-*Insert the picture of the training portion here*
+<img src="Images/training_and_testing_sets.jpg" width="700">
 
 #### Why LSTM; Benefits and Limitations:
-For this project, an LSTM model was necessary to perform this analysis. It is difficult to train RNNS to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
-Instead, a Long Short-Term Memory (LSTM) was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
+For this project, a Long Short-Term Memory (LSTM) model was necessary to perform this analysis. It is difficult to train regular Recurrent Neural Networks (RNNs) to capture long-term dependencies because the gradients tend to either vanish or explode. This is referred to as the vanishing gradient problem, where the gradient shrinks the further back in time it goes. Too small a gradient won’t allow for good machine learning. Due to this, a normal RNN was excluded after the first analysis attempt.
+Instead, an LSTM was chosen for this model because unlike other recurrent neural networks, the LSTM model has a large memory capacity and is able to store past information.  LSTM is one type of RNN used to learn order dependence in sequence predictions. Unlike traditional RNN’s, the LSTM model has gates that control the flow of information. An LSTM model has the capability to learn which data is or is not important within the sequence. These models are great for stock predictions because the future of a stock price is dependent on the price history. 
 There are a few potential draw backs of using the LSTM model. The main drawbacks for this model are;
-*The training process is longer
-*They require more memory to train (cannot be done in cloud due to scaling)
-*Prone to overfitting
+- The training process is longer
+- They require more memory to train (cannot be done in cloud due to scaling)
+- Prone to overfitting
 
 #### Model Choice:
 The original model choice was a normal RNN until we realized we were working with Timeseries data and that a standard RNN would be unable to retain enough information to properly train the model. We then chose an LSTM instead as this is the most common practice for stock prediction. The stock history data for all four stockers were concatenated into one database. Tickers were implements to allowed for filter based on that ticker - CHWY, ELAN, FRPT, PETQ.
 
 #### Model training:
 The model was trained by fitting it to the previously separated testing set data. To do this, an optimizer and loss function was applied.
-* Insert picture HERE *
+
+<img src="Images/model_training.jpg" width="800">
 
 For this project, the “adam” optimizer for its fast results and works well with large datasets. The model was then fit to training sets using a batch_size of 1 and run for 5 epochs.
 
