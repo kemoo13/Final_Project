@@ -69,7 +69,11 @@ We started off by importing our dependencies and reading in our cleaned Chewy da
 
 We then generated our DataFrame and reviewed our columns, at this point we realized we had an issue with the name of one of the columns, so we amended the name by using the .rename function to rename our Adj_Close column.  We began setting up our model by listing the X and y values, calling the X values chewy_df[["Open", "High", "Low", "Close", "Volume"]] and the y value chewy_df["Adj_Close"]. 
 
+![Generating_Chewy_Data](https://github.com/kemoo13/Final_Project/blob/main/Images/Generating_Chewy_Data.png)
+
 We then imported sklearn.model_selection and train_test_split to set up our data for splitting.  
+
+![sk_learn_train_test_split.png](https://github.com/kemoo13/Final_Project/blob/main/Images/sk_learn_train_test_split.png)
 
 Our next step was to then scale the data to set it up for the keras sequential model.  After setting up the keras sequential model, we added our first 
 dense layer and output layer.  We then compiled the data and fit the model to the training data.  The end result provided us with a model that was not very
