@@ -24,26 +24,27 @@ Here is a link to the draft presentation [slides](https://docs.google.com/presen
 ## Project Flow
 ![Flow_Diagram](/Images/Pet_Stock_Workflow.png)
 
-## Data Sources
-Yahoo Finance Historical Data : CHWY, ELAN, FRPT, PETQ, ^SPX
+## Data Cleaning
 
-Historical data for each stock and the S&P 500 Index was downloaded as individual `.csv` files from Yahoo Finance.  Each file was read into a pandas dataframe and checked for datatype and null values.  The date was converted to datetime and a column was added to each dataframe to identify the stock's ticker, which would become the primary key for the database. Each cleaned dataframe was exported as a .csv file for the repository and also loaded to a Postgres Table `all_stocks` using SQLALchemy.  
+Three years of historical price data (starting date 10/16/2019) for each stock was downloaded as individual `.csv` files from [Yahoo Finance](https://finance.yahoo.com/).  Each file was read into a pandas dataframe and checked for datatype and null values.  The date was converted to datetime and a column was added to each dataframe to identify the stock's ticker, which would become the primary key for the database. Each cleaned dataframe was appended to a PostgreSQL Table `all_stocks` using an SQLAlchemy connection.  
 
 ![cleaning notebook](Images/to_sql_all_stocks.png)
 
-Pet Ownership and Industry data
-- Insurance Information Institute
-- American Pet Products Association
-- American Veterinary Meidcal Association
-- North American Pet Health Insurance Association
-
 ## Database
 
-Entity Relationship Diagram (ERD)
+A second table containing company profile information was created in PostgreSQL and the associated `company_info.csv` file was uploaded using PGadmin.  
+
+Below is the Entity Relationship Diagram (ERD) for the two tables:
 
 ![Image](Images/D04.png)
 
-Using PGadmin, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
+Using the Ticker column as the primary key, the `all_stocks` table was joined with the `company_info` table and exported as a `all_stocks_joined.csv` for the machine learning segment.
+
+![Image](Images/etl5.png)
+
+Below is an image of the resulting table in the PostgreSQL database:
+
+![Image](Images/etl6.png)
 
 ## Visualizations
 The final project dashboard was built in Tableau and hosted on Tablea Public. [Link to Tableau Dashboard](https://public.tableau.com/app/profile/alyssa.davis/viz/Dashboard_D01/DashboardD03)
@@ -57,8 +58,6 @@ The user can view all company data or filter down to a specific stock and date r
 
 Diagramming the mockup in Figma before creation helped us identify what data points to show and what elements we wanted to be interactive. Below is the  draft mockup of our final dashboard presentation. The interactive elements as noted in the mockup to filter to specific stocks and date ranges to learn more.
 ![Dashboard_mockup](Images/Pet_Stock_Mockup.png)
-
-
 
 ## Machine Learning
 
@@ -76,8 +75,17 @@ We then imported sklearn.model_selection and train_test_split to set up our data
 ![sk_learn_train_test_split.png](https://github.com/kemoo13/Final_Project/blob/main/Images/sk_learn_train_test_split.png)
 
 Our next step was to then scale the data to set it up for the keras sequential model.  After setting up the keras sequential model, we added our first 
-dense layer and output layer.  We then compiled the data and fit the model to the training data.  The end result provided us with a model that was not very
-accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
+dense layer and output layer as shown in the images below.
+
+![Keras_Model.png](https://github.com/kemoo13/Final_Project/blob/main/Images/Keras_Model.png)
+
+![first_dense_layer_and_output.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_dense_layer_and_output.png)
+
+We then compiled the data and fit the model to the training data.  
+
+The end result provided us with a model that was not very accurate for what we were trying to predict, so we decided to take what we learned from this model and move on to creating a more reliable model which was our LSTM model. 
+
+![first_ML_accuracy.png](https://github.com/kemoo13/Final_Project/blob/main/Images/first_ML_accuracy.png)
 
 #### Data preprocessing:
 To preprocess the data, we began by checking the data types. We then converted the date into a datetime format. The data was checked for null values, any of which were removed. This analysis does not require extensive preprocessing to run with the LSTM model.
@@ -116,7 +124,7 @@ The LSTM model uses a root mean square error (RMSE) metric to determine the accu
 
 ## Summary
 
-
+In conclusion, our use of trial and error though Machine Learning produced a model that was able to accurately predict a stock price based on its previous price. 
 
 ## Future Improvement
 
@@ -132,4 +140,8 @@ US News - https://money.usnews.com/investing/stock-market-news/slideshows/pet-st
 
 Yahoo Finance - https://finance.yahoo.com/news/9-best-purebred-pet-stocks-210145250.html
 
-
+Pet Ownership and Industry data
+- Insurance Information Institute
+- American Pet Products Association
+- American Veterinary Meidcal Association
+- North American Pet Health Insurance Association
